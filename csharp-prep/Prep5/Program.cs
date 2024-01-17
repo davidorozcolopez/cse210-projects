@@ -25,8 +25,8 @@ class Program
             }
             System.Console.WriteLine($"Name is {name}");
             return;
-
-        PrintName(Bob);
+        }
+        PrintName("Bob");
 
         // variable scope
         var y = 0;
