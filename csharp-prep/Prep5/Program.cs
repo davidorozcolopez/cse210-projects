@@ -37,7 +37,6 @@ class Program
         }
         // y = w + 4; doesn't work because w was declared locally inside curly braces
 
-        }
-
     }
+
 }
