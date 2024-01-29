@@ -5,11 +5,11 @@ public class Journal
     public string filename;
 
     // Constructor
-    public Journal (string import);
+    public Journal(string import);
 
     public string exportJournal(string filename)
     {
-        
+
     }
 
 }
