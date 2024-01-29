@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.Intrinsics.Arm;
 
 class Program
 {
     static void Main(string[] args)
     {
+        // Notes from class lesson
+
         // while loop
         int count = 5;
 
@@ -23,9 +26,33 @@ class Program
             System.Console.WriteLine($"i = {i}");
         }
 
-        // Generate a random number
+        // Assignment #3
+        System.Console.WriteLine("Assignment #3: Guess My Number Program\n");
 
-        System.Console.WriteLine("Guess a number: ");
-        int guess = int.Parse(Console.ReadLine());
+        // Generate a random number
+        Random randomGenerator = new Random();
+        int randomNumber = randomGenerator.Next(1, 100);
+
+        bool found = false;
+        do
+        {
+            System.Console.WriteLine("What is your guess? ");
+            int guessNumber = int.Parse(Console.ReadLine()); // The int.Parse() method converts a string into an integer
+
+            if (guessNumber > randomNumber)
+            {
+                System.Console.WriteLine("Lower");
+            }
+            else if (guessNumber < randomNumber)
+            {
+                System.Console.WriteLine("Higher");
+            }
+            else if (guessNumber == randomNumber)
+            {
+                System.Console.WriteLine("You guessed it!");
+                found = true;
+            }
+        } while (found == false);
+        
     }
 }
