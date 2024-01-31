@@ -1,4 +1,3 @@
-
 public class Entry
 {
     public string response;
@@ -6,14 +5,21 @@ public class Entry
     public string date;
 
     // Constructor
-    public Entry(string import, string programPrompt, string programDate){
-        response = import;
+    public Entry(string userResponse, string programPrompt, string programDate){
+        response = userResponse;
         prompt = programPrompt;
         date = programDate;
     }
 
-    public string exportEntry()
+    public string ImportEntry()
     {
+        entry = journal.entries;
+        return entry;
+    }
 
+    public List<Entry> ExportEntry()
+    {
+        List<Entry> entries = new List<Entry>();
+        return entries;
     }
 }
