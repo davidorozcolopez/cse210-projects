@@ -3,12 +3,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using Microsoft.VisualBasic;
 using static System.Random;
+using System.IO;
 
 class Program
 {
     static void Main(string[] args) // main function
     {
         Journal journal = new Journal(); // create a new instance of the class Journal and assign it to journal variable
+        Entry entry = new Entry(); // create a new instance of the class Entry and assign it to entry variable
         List<string> prompts = new List<string>() // create a new list that holds strings and assign it to prompts variable
         {
             "What was the best part of my day? ",                             // individual prompts
@@ -27,15 +29,18 @@ class Program
             Console.Clear(); // clear screen for a better user interface
             int choice = DisplayMenu(); // call DisplayMenu function and assign returned value to choice variable
             
-            if (choice == 1) // write a new entry
+            if (choice == 1) // write a new entry: display random prompt, save their response, the prompt, and the date as an Entry.
             {
                 DisplayPrompt(); // display random prompt
-                string singleEntry = entry.ExportEntry(); // ??? use method ExportEntry() from class Entry. Why is it not working/not recognizing class entry in this context? (Idea: Class Journal needs to do something here.) Do I need to add a namespace?
-                journal.AddEntry(singleEntry); // ??? use method AddEntry() from class Journal, to add current entry to the list of entries held by the Journal object.
+                DateTime currentDate = DateTime.Now; // create a new instance (new object) of the class DateTime and assign it to currentDate variable
+                string programDate = currentDate.ToShortDateString(); // get a short date string and assign it to programDate variable
+                string userResponse = Console.ReadLine(); // read input from the user and assign it to userResponse variable
+                string singleEntry = entry.ExportEntry(); // use method ExportEntry() from class Entry. (Idea: Class Journal needs to do something here.) Do I need to add a namespace?
+                entry.AddEntry(); // ??? (How are these parameters needed inside of this AddEntry function going to get in the function?) use constructor function from class Journal, to add current entry to the list of entries held by the Journal object
             }
             else if (choice == 2) // display the complete journal
             {
-                journal.DisplayJournal(); // !!! use method DisplayJournal() from class Journal.
+                journal.DisplayJournal(); // use method DisplayJournal() from class Journal
             }
             else if (choice == 3) // load the journal from a file
             {
@@ -84,11 +89,6 @@ class Program
         List<string> prompts = new List<string>(); // ??? Do I need to create the new list of strings for my prompts here again? Am I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
         string randomPrompt = ChooseRandomPrompt(prompts); // call function ChooseRandomPrompt and store returned string in randomPrompt variable
         System.Console.WriteLine(randomPrompt); // display randomPrompt string
-    }    
-
-    static Entry CreateEntry() // ??? Do I need to create this method/function or is it enough with the instructions I have above in the menu option for creating/writing a new entry?
-    {
-        
     }
 
     static string[] ReadFile() // this function reads from a file and returns an array of strings
