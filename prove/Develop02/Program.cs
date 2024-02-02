@@ -29,13 +29,14 @@ class Program
             
             if (choice == 1) // Write a new entry
             {
-                ShowPrompt();
+                DisplayPrompt(); // Display random prompt
 
             }
+            else if
         }
     }
 
-    static int DisplayMenu() // this function displays menu and returns the choice given by the user
+    static int DisplayMenu() // this function displays menu and returns the number of the choice given by the user
     {
         System.Console.WriteLine("Please choose one of the following options:");
         System.Console.WriteLine("1. Write");
@@ -59,14 +60,14 @@ class Program
     // this function displays a single random prompt, returns nothing
     static void DisplayPrompt()
     {
-        List<string> prompts = new List<string>(); // ? Do I need to create the new list of strings for my prompts here again? Am, I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
+        List<string> prompts = new List<string>(); // ? Do I need to create the new list of strings for my prompts here again? Am I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
         string randomPrompt = ChooseRandomPrompt(prompts); // call function ChooseRandomPrompt and store returned string in randomPrompt variable
         System.Console.WriteLine(randomPrompt); // display randomPrompt string
     }    
 
     static Entry CreateEntry()
     {
-            
+        
     }
 
     static void DisplayJournal()
