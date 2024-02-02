@@ -18,7 +18,7 @@ class Program
             "If I had one thing I could do over today, what would it be? ",
         };
 
-        // ? no constructor of the Program class needed?
+        // ??? No constructor of the Program class needed?
 
         bool finished = false;
 
@@ -27,12 +27,33 @@ class Program
             Console.Clear(); // clear screen for a better user interface
             int choice = DisplayMenu(); // call DisplayMenu function and assign returned value to choice variable
             
-            if (choice == 1) // Write a new entry
+            if (choice == 1) // write a new entry
             {
-                DisplayPrompt(); // Display random prompt
-
+                DisplayPrompt(); // display random prompt
+                string singleEntry = entry.ExportEntry(); // ??? use method ExportEntry() from class Entry. Why is it not working/not recognizing class entry in this context? (Idea: Class Journal needs to do something here.) Do I need to add a namespace?
+                journal.AddEntry(singleEntry); // ??? use method AddEntry() from class Journal, to add current entry to the list of entries held by the Journal object.
             }
-            else if
+            else if (choice == 2) // display the complete journal
+            {
+                journal.DisplayJournal(); // !!! use method DisplayJournal() from class Journal.
+            }
+            else if (choice == 3) // load the journal from a file
+            {
+                string[] fileImportedLines = ReadFile(); // call ReadFile function and store the returned array of strings into fileImportedLines variable
+            }
+            else if (choice == 4) // save the journal to a file
+            {
+                string[] linesToBeWrittenIntoFile = journal.ExportJournal(); // !!! use method ExportJournal() from class Journal, and store the returned array of strings into the linesToBeWrittenIntoFile variable
+                WriteFile(linesToBeWrittenIntoFile); // call WriteFile function to write into the file
+            }
+            else if (choice == 5) // quit/exit
+            {
+                finished = true; // set boolean variable finished to true in order to exit the while loop
+            }
+            else
+            {
+                System.Console.WriteLine("Please write a valid number from 1 to 5.");
+            }
         }
     }
 
@@ -60,33 +81,28 @@ class Program
     // this function displays a single random prompt, returns nothing
     static void DisplayPrompt()
     {
-        List<string> prompts = new List<string>(); // ? Do I need to create the new list of strings for my prompts here again? Am I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
+        List<string> prompts = new List<string>(); // ??? Do I need to create the new list of strings for my prompts here again? Am I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
         string randomPrompt = ChooseRandomPrompt(prompts); // call function ChooseRandomPrompt and store returned string in randomPrompt variable
         System.Console.WriteLine(randomPrompt); // display randomPrompt string
     }    
 
-    static Entry CreateEntry()
+    static Entry CreateEntry() // ??? Do I need to create this method/function or is it enough with the instructions I have above in the menu option for creating/writing a new entry?
     {
         
     }
 
-    static void DisplayJournal()
+    static string[] ReadFile() // this function reads from a file and returns an array of strings
     {
-        System.Console.WriteLine(string[] journal);
+        System.Console.Write("What is the filename? "); // prompt the user for filename
+        string filename = Console.ReadLine(); // read user input and store it in filename variable
+        return System.IO.File.ReadAllLines(filename); // open the text file (filename), read all lines from the file and return them as an array of strings, close the file
     }
 
-    static void SaveJournal()
+    static void WriteFile(string[] lines) // this function receives an array of strings (lines), and writes it into a new text file as indicated by the user (filename)
     {
-            
+        System.Console.Write("What is the filename? "); // prompt the user for filename
+        string filename = Console.ReadLine(); // read user input and store it in filename variable
+        System.IO.File.WriteAllLines(filename, lines); // create a new text file (filename), write all lines from the provided array of strings (lines) into file, close the file  
     }
 
-    public string GetFilename()
-    {
-
-    }
-
-    public Journal LoadJournal()
-    {
-
-    }        
 }

@@ -1,4 +1,4 @@
-
+// Add here the methods that I need class Journal to have according to the class Program
 public class Journal
 {
     public List<Entry> entries;
@@ -23,4 +23,18 @@ public class Journal
 
     }
 
+    public void DisplayJournal()
+    {
+        System.Console.WriteLine(string[] journal);
+    }
+
+    public void SaveJournal()
+    {
+            
+    }
+
+    public Journal LoadJournal()
+    {
+
+    }        
 }
