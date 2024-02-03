@@ -10,12 +10,12 @@ public class Journal
         entries = new List<Entry>(); // create a new list that holds Entry data type values and assign it to entries variable
     }
 
-    public Journal(string[] importLines)
+    public Journal(string[] importedLines)
     {
-        List<Entry> entries = new List<Entry>(); // ??? create (again?) a new list that holds Entry data type values and assign it to entries variable
-        foreach (var line in importLines) // for each line in the importLines array of strings
+        entries = new List<Entry>(); // populate (assign values to) our list that holds Entry data type values and assign it to entries variable
+        foreach (var line in importedLines) // for each line in the importedLines array of strings
         {
-            var entry = new Entry(line); // create a new instance of class Entry, feed it a line as a parameter, and assign it to entry variable 
+            var entry = new Entry(line); // create a new instance of class Entry, feed it the line as a parameter, and assign it to entry variable 
             entries.Add(entry); // add single entry to the list of entries
         }
     }

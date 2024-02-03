@@ -44,7 +44,7 @@ class Program
             else if (choice == 3) // load the journal from a file
             {
                 string[] fileImportedLines = ReadFile(); // call ReadFile function and store the returned array of strings into fileImportedLines variable
-                journal = new Journal(fileImportedLines);
+                journal = new Journal(fileImportedLines); // create a new instance of class Journal with fileImportedLines as its parameter, and assign it to the previously declared journal variable
             }
             else if (choice == 4) // save the journal to a file
             {
