@@ -1,10 +1,8 @@
-
 public class Entry
 {
     public string date;
     public string prompt;
     public string response;
-    List<Entry> entries;
 
     // Constructor
     public Entry(string programDate, string programPrompt, string userResponse)
@@ -22,7 +20,7 @@ public class Entry
         response = entryParts[2]; // assign element at index 2 of the array to the response variable
     }
 
-    public string ExportEntry() // ?? (No parameters needed here?) this function exports a single entry with its parts separated by the delimiter "|"
+    public string ExportEntry() // this function exports a single entry with its parts separated by the delimiter "|"
     {
         return $"{date}|{prompt}|{response}";
     }
@@ -32,9 +30,4 @@ public class Entry
         return $"Date: {date} - Prompt: {prompt} \n{response}";
     }
 
-    public void AddEntry() // this function adds a single entry to the list of entries
-    {
-        var entry = new Entry(date, prompt, response); // create a new instance of the class Entry, use constructor of Entry, and assign it to entry variable
-        entries.Add(entry); // add single entry to list of entries
-    }
 }

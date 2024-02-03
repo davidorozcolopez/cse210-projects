@@ -1,13 +1,13 @@
-// Add here the methods that I need class Journal to have according to the class Program
+using Microsoft.VisualBasic;
+
 public class Journal
 {
     public List<Entry> entries;
 
     // Constructors
-
     public Journal()
     {
-        List<Entry> entries = new List<Entry>(); // create a new list that holds Entry data type values and assign it to entries variable
+        entries = new List<Entry>(); // create a new list that holds Entry data type values and assign it to entries variable
     }
 
     public Journal(string[] importLines)
@@ -33,23 +33,19 @@ public class Journal
         System.Console.ReadKey(); // continue with the program until any key is pressed
     }
 
-    public string ImportJournal(string)
+    public void AddEntry(Entry entry) // this function adds a single entry to the list of entries
     {
-        
+        entries.Add(entry); // add single entry to list of entries
     }
 
-    public string ExportJournal(string filename)
+    public string[] ExportJournal()
     {
-
+        var linesToBeWrittenIntoFile = new List<string>(); // create a new list of strings and assign it to the linesToBeWrittenIntoFile variable
+        foreach (var entry in entries)
+        {
+            linesToBeWrittenIntoFile.Add(entry.ExportEntry());
+        }
+        return linesToBeWrittenIntoFile.ToArray();
     }
 
-    public void SaveJournal()
-    {
-            
-    }
-
-    public Journal LoadJournal()
-    {
-
-    }        
 }

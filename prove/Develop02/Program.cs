@@ -7,11 +7,7 @@ using System.IO;
 
 class Program
 {
-    static void Main(string[] args) // main function
-    {
-        Journal journal = new Journal(); // create a new instance of the class Journal and assign it to journal variable
-        Entry entry = new Entry(); // create a new instance of the class Entry and assign it to entry variable
-        List<string> prompts = new List<string>() // create a new list that holds strings and assign it to prompts variable
+    static List<string> prompts = new List<string>() // create a new list that holds strings and assign it to prompts variable
         {
             "What was the best part of my day? ",                             // individual prompts
             "Who was the most interesting person I interacted with today? ",
@@ -20,7 +16,9 @@ class Program
             "If I had one thing I could do over today, what would it be? ",
         };
 
-        // ??? No constructor of the Program class needed?
+    static void Main(string[] args) // main function
+    {
+        Journal journal = new Journal(); // create a new instance of the class Journal and assign it to journal variable
 
         bool finished = false;
 
@@ -31,12 +29,13 @@ class Program
             
             if (choice == 1) // write a new entry: display random prompt, save their response, the prompt, and the date as an Entry.
             {
-                DisplayPrompt(); // display random prompt
+                var prompt = ChooseRandomPrompt(); // display random prompt
+                System.Console.WriteLine(prompt);
                 DateTime currentDate = DateTime.Now; // create a new instance (new object) of the class DateTime and assign it to currentDate variable
                 string programDate = currentDate.ToShortDateString(); // get a short date string and assign it to programDate variable
                 string userResponse = Console.ReadLine(); // read input from the user and assign it to userResponse variable
-                string singleEntry = entry.ExportEntry(); // use method ExportEntry() from class Entry. (Idea: Class Journal needs to do something here.) Do I need to add a namespace?
-                entry.AddEntry(); // ??? (How are these parameters needed inside of this AddEntry function going to get in the function?) use constructor function from class Journal, to add current entry to the list of entries held by the Journal object
+                Entry singleEntry = new Entry(programDate, prompt, userResponse); // 
+                journal.AddEntry(singleEntry); // use AddEntry method from class Journal, to add current entry to the list of entries held by the Journal object
             }
             else if (choice == 2) // display the complete journal
             {
@@ -45,11 +44,12 @@ class Program
             else if (choice == 3) // load the journal from a file
             {
                 string[] fileImportedLines = ReadFile(); // call ReadFile function and store the returned array of strings into fileImportedLines variable
+                journal = new Journal(fileImportedLines);
             }
             else if (choice == 4) // save the journal to a file
             {
-                string[] linesToBeWrittenIntoFile = journal.ExportJournal(); // !!! use method ExportJournal() from class Journal, and store the returned array of strings into the linesToBeWrittenIntoFile variable
-                WriteFile(linesToBeWrittenIntoFile); // call WriteFile function to write into the file
+                string[] linesToBeWrittenIntoFile = journal.ExportJournal(); // use method ExportJournal from class Journal, and store the returned array of strings into the linesToBeWrittenIntoFile variable
+                WriteFile(linesToBeWrittenIntoFile); // call WriteFile function to write the array of strings linesToBeWrittenIntoFile into the text file
             }
             else if (choice == 5) // quit/exit
             {
@@ -76,26 +76,11 @@ class Program
     }
 
     // this function receives a list of strings called prompts, and returns a single random prompt
-    static string ChooseRandomPrompt(List<string> prompts)
+    static string ChooseRandomPrompt()
     {
         Random randomNumGenerator = new Random(); // create a new instance of the class Random and assign it to randomNumGenerator variable
         int randomIndex = randomNumGenerator.Next(0, prompts.Count); // generate a random number between the range of 0 and the length of the list of prompts, using the Next method, and assign it to the randomIndex variable
         return prompts[randomIndex]; // using the randomIndex, access the element (the prompt) of the list prompts at that specific index and return it as a string
-    }
-
-    // this function displays a single random prompt, returns nothing
-    static void DisplayPrompt()
-    {
-        List<string> prompts = new List<string>(); // ??? Do I need to create the new list of strings for my prompts here again? Am I creating a different list here? If I dont, then it says that prompts does not exist in this context. How do I connect this list with the previously defined list?
-        string randomPrompt = ChooseRandomPrompt(prompts); // call function ChooseRandomPrompt and store returned string in randomPrompt variable
-        System.Console.WriteLine(randomPrompt); // display randomPrompt string
-    }
-
-    static string[] ReadFile() // this function reads from a file and returns an array of strings
-    {
-        System.Console.Write("What is the filename? "); // prompt the user for filename
-        string filename = Console.ReadLine(); // read user input and store it in filename variable
-        return System.IO.File.ReadAllLines(filename); // open the text file (filename), read all lines from the file and return them as an array of strings, close the file
     }
 
     static void WriteFile(string[] lines) // this function receives an array of strings (lines), and writes it into a new text file as indicated by the user (filename)
@@ -103,6 +88,13 @@ class Program
         System.Console.Write("What is the filename? "); // prompt the user for filename
         string filename = Console.ReadLine(); // read user input and store it in filename variable
         System.IO.File.WriteAllLines(filename, lines); // create a new text file (filename), write all lines from the provided array of strings (lines) into file, close the file  
+    }
+
+    static string[] ReadFile() // this function reads from a file and returns an array of strings
+    {
+        System.Console.Write("What is the filename? "); // prompt the user for filename
+        string filename = Console.ReadLine(); // read user input and store it in filename variable
+        return System.IO.File.ReadAllLines(filename); // open the text file (filename), read all lines from the file and return them as an array of strings, close the file
     }
 
 }
