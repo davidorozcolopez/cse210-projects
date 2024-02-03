@@ -9,11 +9,26 @@ class Program
 {
     static List<string> prompts = new List<string>() // create a new list that holds strings and assign it to prompts variable
         {
-            "What was the best part of my day? ",                             // individual prompts
-            "Who was the most interesting person I interacted with today? ",
-            "How did I see the hand of the Lord in my life today? ",
-            "What was the strongest emotion I felt today? ",
-            "If I had one thing I could do over today, what would it be? ",
+            "What was the best part of your day?",                             // individual prompts
+            "How did you see the hand of the Lord in you life today?",
+            "What was the biggest feeling you had today?",
+            "If you could do something different today, what would it be?",
+            "What did you enjoy the most today?",
+            "What do you want to remember from today?",
+            "What is something you learned today?",
+            "Where did you go today?",
+            "How was school today?",
+            "What did you do for exercise today?",
+            "Who can you call/message today?",
+            "What is one of your goals to improve tomorrow?",
+            "What song was your favorite today?",
+            "What is something that your excited about?",
+            "What is something that you just find so interesting to think about?",
+            "What motivated you today?",
+            "Who did you spend quality time with today?",
+            "What area of life are working on to improve right now and what is your goal?",
+            "What makes you happy?",
+            "What did you enjoy doing today?",
         };
 
     static void Main(string[] args) // main function
@@ -53,6 +68,7 @@ class Program
             }
             else if (choice == 5) // quit/exit
             {
+                System.Console.WriteLine("Have a great day!");
                 finished = true; // set boolean variable finished to true in order to exit the while loop
             }
             else
