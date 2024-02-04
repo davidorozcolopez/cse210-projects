@@ -45,7 +45,7 @@ public class Journal
         {
             linesToBeWrittenIntoFile.Add(entry.ExportEntry());
         }
-        return linesToBeWrittenIntoFile.ToArray();
+        return linesToBeWrittenIntoFile.ToArray(); // return the lines to be written into file as an array of strings
     }
 
 }

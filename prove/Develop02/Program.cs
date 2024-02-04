@@ -9,7 +9,7 @@ class Program
 {
     static List<string> prompts = new List<string>() // create a new list that holds strings and assign it to prompts variable
         {
-            "What was the best part of your day?",                             // individual prompts
+            "What was the best part of your day?",                                            // individual prompts
             "How did you see the hand of the Lord in you life today?",
             "What was the biggest feeling you had today?",
             "If you could do something different today, what would it be?",
@@ -91,8 +91,7 @@ class Program
         return choice; // return choice variable, which holds the number of the choice given by the user
     }
 
-    // this function receives a list of strings called prompts, and returns a single random prompt
-    static string ChooseRandomPrompt()
+    static string ChooseRandomPrompt() // this function receives a list of strings called prompts, and returns a single random prompt
     {
         Random randomNumGenerator = new Random(); // create a new instance of the class Random and assign it to randomNumGenerator variable
         int randomIndex = randomNumGenerator.Next(0, prompts.Count); // generate a random number between the range of 0 and the length of the list of prompts, using the Next method, and assign it to the randomIndex variable

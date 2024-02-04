@@ -4,15 +4,15 @@ public class Entry
     public string prompt;
     public string response;
 
-    // Constructor
+    // Constructors
     public Entry(string programDate, string programPrompt, string userResponse)
     {
         date = programDate;
         prompt = programPrompt;
-        response = userResponse; // assign parameters of the constructor function to the attributes of the class Entry (that's how we connect them)
+        response = userResponse; // assign parameters of the constructor function to the attributes of the class Entry
     }
 
-    public Entry(string importedEntry) // another constructor function. This function receives an importedEntry as a string from the Journal class and separates the values of said entry
+    public Entry(string importedEntry) // another constructor function, used for another purpose. This function receives an importedEntry as a string from the Journal class and separates the values of said entry
     {
         string[] entryParts = importedEntry.Split("|"); // split string importedEntry into parts, return an array of strings to the entryParts variable (array of strings)
         date = entryParts[0];     // assign element at index 0 of the array to the date variable
