@@ -1,12 +1,24 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 class Scripture
 {
-    Reference reference;
+    private Reference reference;
 
-    List<Word> words;
+    private List<Word> words = new List<Word>();
 
-    List<string> ConvertToList(string verse)
+    public Scripture(Reference reference, string verse)
+    {
+        this.reference = reference;
+        List<string> wordsList = verse.Split(" ").ToList();
+        foreach (string word in wordsList)
+        {
+            Word singleWord = new Word(word);
+            words.Append(singleWord);
+        }
+    }
+
+    public HideThreeWords()
     {
 
     }
