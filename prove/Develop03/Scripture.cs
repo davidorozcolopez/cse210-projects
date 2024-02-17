@@ -1,10 +1,7 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
-
 class Scripture
 {
     private Reference reference;
-
     private List<Word> words = new List<Word>();
 
     public Scripture(Reference reference, string verse)
@@ -14,12 +11,27 @@ class Scripture
         foreach (string word in wordsList)
         {
             Word singleWord = new Word(word);
-            words.Append(singleWord);
+            words.Add(singleWord);
         }
     }
 
-    public HideThreeWords()
+    public void HideThreeWords()
     {
-
+        for (int i = 0; i < 3; i++)
+        {
+            Random randomNumGenerator = new Random(); // create a new instance of the class Random and assign it to randomNumGenerator variable
+            int randomIndex = randomNumGenerator.Next(0, words.Count); // generate a random number between the range of 0 and the length of the list of prompts, using the Next method, and assign it to the randomIndex variable
+            var randomWord = words[randomIndex]; // using the randomIndex, access the element (the prompt) of the list prompts at that specific index and return it as a string
+            randomWord.HideWord(); //
+        }
+    }
+    
+    public void DisplayScripture()
+    {
+        reference.DisplayReference();
+        foreach (Word word in words)
+        {
+            word.DisplayWord();
+        }
     }
 }

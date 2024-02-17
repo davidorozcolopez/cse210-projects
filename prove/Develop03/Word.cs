@@ -1,23 +1,34 @@
 using System;
-
+using System.ComponentModel.DataAnnotations;
 class Word
 {
-    private string word;
+    private string wordText;
     private bool hidden;
 
     public Word(string word)
     {
-        this.word = word;
-        this.hidden = false;
+        wordText = word;
+        hidden = false;
     }
 
     public void HideWord()
     {
-        
+        hidden = true;
     }
 
-    public void DisplayWord()
+    public void DisplayWord() //
     {
-
+        if (hidden)
+        {
+            int length = wordText.Count();
+            for(var i = 0; i < length; i++)
+            {
+                System.Console.Write("_");
+            }
+        }
+        else
+        {
+            System.Console.Write(wordText);
+        }
     }
 }
