@@ -8,8 +8,10 @@ public class Program
         
         Reference reference = new Reference("John", 3, 16);
         Scripture scripture = new Scripture(reference, verse);
+        Word word = new Word
 
         bool finished = false;
+        bool hidden = false;
         while (!finished)
         {
             Console.Clear();
@@ -17,13 +19,20 @@ public class Program
             System.Console.WriteLine("Press enter to continue, type 'quit' to exit.");
             var choice = System.Console.ReadLine();
 
-            if (choice == "quit")
+            if (scripture.word != hidden)
             {
-                finished = true;
+                if (choice == "quit")
+                {
+                    finished = true;
+                }
+                else
+                {
+                    scripture.HideThreeWords();
+                }
             }
             else
             {
-                scripture.HideThreeWords();
+                finished = true;
             }
         }
     }

@@ -32,6 +32,7 @@ class Scripture
         foreach (Word word in words)
         {
             word.DisplayWord();
+            System.Console.Write(" ");
         }
     }
 }
