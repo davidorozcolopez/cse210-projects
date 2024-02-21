@@ -35,4 +35,17 @@ class Scripture
             System.Console.Write(" ");
         }
     }
+
+    public bool IsHidden()
+    {
+        foreach (Word word in words)
+        {
+            bool hiddenState = word.WordIsHidden();
+            if (!hiddenState)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

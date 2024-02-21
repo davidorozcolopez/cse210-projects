@@ -16,6 +16,11 @@ class Word
         hidden = true;
     }
 
+    public bool WordIsHidden()
+    {
+        return hidden;
+    }
+
     public void DisplayWord() //
     {
         if (hidden)
