@@ -6,4 +6,28 @@ class Activity
     protected int currentTime;
     protected int futureTime;
 
+    public Activity()
+    {
+
+    }
+
+    public int PromptDuration()
+    {
+
+    }
+
+    public bool CheckTime()
+    {
+
+    }
+
+    public string GetStartMessageInfo()
+    {
+
+    }
+
+    public string GetEndMessageInfo()
+    {
+        
+    }
 }
