@@ -3,13 +3,17 @@ using Microsoft.VisualBasic;
 class Breathing: Activity
 {
 
-    public Breathing()
+    public Breathing() : base("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")
     {
 
     }
 
-    public void BreathingActivity() // void?
+    public void StartBreathing()
     {
+        // while (CheckTime = true)
+        {
 
+        }
+        // checktime += duration;
     }
 }
