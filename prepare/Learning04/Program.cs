@@ -43,7 +43,7 @@ class Student: Person // This is how we declare that Person class is a parent cl
         this.major = major;
     }
 
-    public Display()
+    public void Display()
     {
         System.Console.WriteLine("Student");
     }
@@ -58,9 +58,9 @@ class Faculty: Person
         this.department = department;
     }
 
-    public Display()
+    public void Display()
     {
-        System.Console.WriteLine("Student");
+        System.Console.WriteLine("Faculty");
     }
 }
 
