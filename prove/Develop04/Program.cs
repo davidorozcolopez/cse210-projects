@@ -5,10 +5,37 @@ class Program
     static void Main(string[] args)
     {
         bool finished = false;
+
         while (!finished)
         {
-            
-        }
+            System.Console.WriteLine(@"Menu Options: 
+    1. Start breathing activity
+    2. Start reflecting activity
+    3. Start listing activity
+    4. Quit");
+            System.Console.Write("Select a choice from the menu: ");
+            int choice = int.Parse(Console.ReadLine());
 
+            if (choice == 1) // Start breathing activity
+            {
+                
+            }
+            else if (choice == 2) // Start reflecting activity
+            {
+                
+            }
+            else if (choice == 3) // Start listing activity
+            {
+                
+            }
+            else if (choice == 4) // Quit
+            {
+                finished = true;
+            }
+            else // Handle invalid input for choice
+            {
+                System.Console.WriteLine("Please enter a valid number from 1 to 4.");
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+
 class Activity
 {
     protected string name;
