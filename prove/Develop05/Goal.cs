@@ -5,11 +5,14 @@ public class Goal
     protected string name;
     protected string description;
 
-    public Goal(int points, string name, string description)
+    public Goal()
     {
-        this.points = points;
-        this.name = name;
-        this.description = description;
+        System.Console.WriteLine("What is the name of your goal? ");
+        name = Console.ReadLine();
+        System.Console.WriteLine("What is a short description of it? ");
+        description = Console.ReadLine();
+        System.Console.WriteLine("What is the amount of points associated with this goal? ");
+        points = int.Parse(Console.ReadLine());
     }
 
     public int GetPoints()
