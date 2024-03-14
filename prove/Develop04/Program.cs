@@ -1,5 +1,5 @@
 using System;
-
+using System.Runtime.InteropServices;
 class Program
 {
     static void Main(string[] args)
@@ -18,7 +18,18 @@ class Program
 
             if (choice == 1) // Start breathing activity
             {
-                
+                Breathing breathingActivity = new Breathing();
+                Console.Clear();
+
+                System.Console.WriteLine(breathingActivity.GetStartMessage());
+                int duration = breathingActivity.PromptDuration();
+                Console.Clear();
+
+                breathingActivity.DisplaySpinnerAnimation();
+                breathingActivity.StartBreathing();
+
+                System.Console.WriteLine(breathingActivity.GetEndMessage());
+
             }
             else if (choice == 2) // Start reflecting activity
             {
@@ -34,7 +45,7 @@ class Program
             }
             else // Handle invalid input for choice
             {
-                System.Console.WriteLine("Please enter a valid number from 1 to 4.");
+                System.Console.WriteLine("Please enter a valid whole number from 1 to 4.");
             }
         }
     }

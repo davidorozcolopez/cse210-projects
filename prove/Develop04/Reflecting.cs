@@ -1,4 +1,3 @@
-
 class Reflecting: Activity
 {
     private List<string> prompts;
