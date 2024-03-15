@@ -16,21 +16,6 @@ class Activity
         return duration = int.Parse(Console.ReadLine());
     }
 
-    public bool CheckTime() // Passing currentTime as parameter?
-    {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(duration); // futureTime is the maxTime
-
-        DateTime currentTime = DateTime.Now; // Or is this how I should do it?
-
-        if (currentTime < futureTime)
-        {
-            return false; // time has not reached desired duration
-        }
-
-        return true; // time has reached desired duration
-    }
-
     public void DisplayCountDown(int max_num) // count down from max_num to 0
     {
         for (int i = max_num; i > 0; i--)
@@ -43,8 +28,6 @@ class Activity
 
     public void DisplaySpinnerAnimation()
     {
-        System.Console.WriteLine("Get ready...");
-
         List<string> spinnerStrings = new List<string>();
         spinnerStrings.Add("|");
         spinnerStrings.Add("/");

@@ -5,18 +5,17 @@ class Breathing: Activity
 
     }
 
-    public void StartBreathing()
+    public void StartBreathing(int duration)
     {
-        DateTime currentTime = DateTime.Now;
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration); // endTime is the maximum time
 
-        while (base.CheckTime() == false)
+        while (DateTime.Now < endTime)
         {
             System.Console.Write("\n\nBreathe in...");
             base.DisplayCountDown(4);
             System.Console.Write("\nNow breathe out...");
             base.DisplayCountDown(4);
-
-            //currentTime.AddSeconds(8);
         }
     }
 }
