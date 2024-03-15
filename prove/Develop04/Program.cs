@@ -66,6 +66,7 @@ class Program
                 listingActivity.DisplaySpinnerAnimation();
                 string randomPrompt = listingActivity.SelectRandomPrompt();
                 listingActivity.StartListing(randomPrompt, duration);
+                listingActivity.DisplaySpinnerAnimation();
                 Console.Clear();
 
                 System.Console.WriteLine(listingActivity.GetEndMessage());

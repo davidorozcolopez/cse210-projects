@@ -55,7 +55,7 @@ You may begin in: ");
         questions.Add("Why was this experience meaningful to you?");
         questions.Add("How did you get started?");
         questions.Add("How did you feel when it was complete?");
-        questions.Add("What was different about this experience from others?");
+        questions.Add("What was different about this experience?");
         questions.Add("What is your favorite thing about this experience?");
         questions.Add("What did you learn from this?");
         questions.Add("How could you apply this to other areas of your life?");

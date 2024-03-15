@@ -7,7 +7,27 @@ class Listing: Activity
 
     public void StartListing(string randomPrompt, int duration)
     {
-        
+        System.Console.Write($@"
+List as many responses as you can to the following prompt:
+--- {randomPrompt} ---
+
+You may begin in: ");
+        base.DisplayCountDown(7);
+        System.Console.WriteLine();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration);
+
+        int count = 0;
+
+        while (DateTime.Now < endTime)
+        {
+            System.Console.Write("> ");
+            Console.ReadLine();
+            count ++;
+        }
+
+        System.Console.WriteLine($"You listed {count} items!");
     }
 
     public string SelectRandomPrompt()
