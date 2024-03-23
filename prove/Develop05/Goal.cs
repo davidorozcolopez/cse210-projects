@@ -1,52 +1,47 @@
-
-public class Goal
+class Goal
 {
-    protected int points;
     protected string name;
     protected string description;
+    protected int points;
 
+    // Goal Constructor that assigns values to attributes
     public Goal()
     {
-        System.Console.WriteLine("What is the name of your goal? ");
+        System.Console.Write("What is the name of your goal? ");
         name = Console.ReadLine();
-        System.Console.WriteLine("What is a short description of it? ");
+        System.Console.Write("What is a short description of it? ");
         description = Console.ReadLine();
-        System.Console.WriteLine("What is the amount of points associated with this goal? ");
+        System.Console.Write("What is the amount of points associated with this goal? ");
         points = int.Parse(Console.ReadLine());
-    }
-
-    public int GetPoints()
-    {
-
     }
 
     public string GetName()
     {
-
+        return name;
     }
 
     public string GetDescription()
     {
-
+        return description;
     }
 
-    public void RecordEvent()
+    public int GetPoints()
     {
-
+        return points;
     }
 
-    public bool IsComplete()
-    {
+    // public void RecordEvent()
+    // {
 
-    }
+    // }
 
-    public void GoalMenu()
-    {
+    // public bool IsComplete()
+    // {
 
-    }
+    // }
 
-    public override PerformTask()
-    {
+    // public override PerformTask()
+    // {
 
-    }
+    // }
 }
