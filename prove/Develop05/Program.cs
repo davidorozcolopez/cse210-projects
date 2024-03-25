@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Goal> goals = new List<Goal>();
+        int totalPoints;
+
         bool done = false;
 
         while (!done)
@@ -31,15 +34,18 @@ class Program
 
                 if (goalChoice == 1) // Simple Goal
                 {
-                    System.Console.WriteLine("Simple Goal test");
+                    Simple simpleGoal = new Simple();
+                    goals.Add(simpleGoal);
                 }
                 else if (goalChoice == 2) // Eternal Goal
                 {
-                    System.Console.WriteLine("Eternal Goal test");
+                    Eternal eternalGoal = new Eternal();
+                    goals.Add(eternalGoal);
                 }
                 else if (goalChoice == 3) // Checklist Goal
                 {
-                    System.Console.WriteLine("Checklist Goal test");
+                    Checklist checklistGoal = new Checklist();
+                    goals.Add(checklistGoal);
                 }
                 else // Handle invalid choice input
                 {
@@ -48,11 +54,17 @@ class Program
             }
             else if (choice == 2) // List Goals
             {
-
+                foreach (Goal goal in goals)
+                {
+                    goal.DisplayGoal();
+                }
             }
             else if (choice == 3) // Save Goals
             {
-
+                for(var i=0;i<goals.Count; ++i) {
+                    System.Console.Write($"{i}. ");
+                    goals[i].DisplayGoal();
+                }
             }
             else if (choice == 4) // Load Goals
             {
@@ -60,7 +72,16 @@ class Program
             }
             else if (choice == 5) // Record Event
             {
+                System.Console.WriteLine("The goals are:");
+                foreach (Goal goal in goals)
+                {
+                    goal.DisplayNameGoal();
+                }
+                System.Console.Write("Which goal did you accomplish? ");
+                int completedGoal = int.Parse(Console.ReadLine());
 
+                System.Console.WriteLine($"Congratulations! You have earned {goalPoints} points!");
+                System.Console.WriteLine($"You now have {totalPoints}");
             }
             else if (choice == 6) // Quit
             {

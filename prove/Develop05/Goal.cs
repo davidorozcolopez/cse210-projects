@@ -1,8 +1,12 @@
-class Goal
+using System.ComponentModel.DataAnnotations.Schema;
+
+public abstract class Goal
 {
     protected string name;
     protected string description;
-    protected int points;
+    protected int goalPoints;
+
+    protected bool goalCompleted;
 
     // Goal Constructor that assigns values to attributes
     public Goal()
@@ -12,28 +16,27 @@ class Goal
         System.Console.Write("What is a short description of it? ");
         description = Console.ReadLine();
         System.Console.Write("What is the amount of points associated with this goal? ");
-        points = int.Parse(Console.ReadLine());
+        goalPoints = int.Parse(Console.ReadLine());
     }
 
-    public string GetName()
+    public abstract void DisplayGoal();
+
+    public void DisplayNameGoal()
     {
-        return name;
+        System.Console.WriteLine($"{name}");
     }
 
-    public string GetDescription()
+    public bool goalCompleted()
     {
-        return description;
+        if (Goal goal )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-
-    public int GetPoints()
-    {
-        return points;
-    }
-
-    // public void RecordEvent()
-    // {
-
-    // }
 
     // public bool IsComplete()
     // {
