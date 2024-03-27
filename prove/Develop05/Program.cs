@@ -56,7 +56,7 @@ class Program
             {
                 foreach (Goal goal in goals)
                 {
-                    goal.DisplayGoal();
+                    goal.DisplayGoal( );
                 }
             }
             else if (choice == 3) // Save Goals
@@ -80,8 +80,8 @@ class Program
                 System.Console.Write("Which goal did you accomplish? ");
                 int completedGoal = int.Parse(Console.ReadLine());
 
-                System.Console.WriteLine($"Congratulations! You have earned {goalPoints} points!");
-                System.Console.WriteLine($"You now have {totalPoints}");
+                // System.Console.WriteLine($"Congratulations! You have earned {goalPoints} points!");
+                // System.Console.WriteLine($"You now have {totalPoints}");
             }
             else if (choice == 6) // Quit
             {

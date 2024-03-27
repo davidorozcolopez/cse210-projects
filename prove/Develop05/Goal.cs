@@ -26,17 +26,17 @@ public abstract class Goal
         System.Console.WriteLine($"{name}");
     }
 
-    public bool goalCompleted()
-    {
-        if (Goal goal )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // public bool goalCompleted()
+    // {
+    //     if (Goal goal )
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 
     // public bool IsComplete()
     // {
