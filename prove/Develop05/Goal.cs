@@ -5,10 +5,9 @@ public abstract class Goal
     protected string name;
     protected string description;
     protected int goalPoints;
-
     protected bool goalCompleted;
 
-    // Goal Constructor that assigns values to attributes
+    // Constructor that assigns values to the attributes
     public Goal()
     {
         System.Console.Write("What is the name of your goal? ");
@@ -17,10 +16,13 @@ public abstract class Goal
         description = Console.ReadLine();
         System.Console.Write("What is the amount of points associated with this goal? ");
         goalPoints = int.Parse(Console.ReadLine());
+        goalCompleted = false; // default value of goalCompleted is set to false
     }
 
+    // polymorphism will be applied here by calling the right method / the right version of DisplayGoal()
+    // that matches the custom data type of that goal, whether it is a Simple, Eternal or Checklist goal
     public abstract void DisplayGoal();
-
+    
     public void DisplayNameGoal()
     {
         System.Console.WriteLine($"{name}");
@@ -43,7 +45,7 @@ public abstract class Goal
 
     // }
 
-    // public override PerformTask()
+    // public override void PerformTask()
     // {
 
     // }

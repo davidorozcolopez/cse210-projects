@@ -10,11 +10,13 @@ public class Checklist: Goal
         maxCount = int.Parse(Console.ReadLine());
         System.Console.Write("What is the bonus for accomplishing it that many times? ");
         bonusPoints = int.Parse(Console.ReadLine());
+        currentCount = 0; // default value of currentCount is set to 0
     }
 
     public override void DisplayGoal()
     {
-        System.Console.WriteLine($"[ ] {name} ({description}) - Currently completed: {currentCount}/{maxCount}");
+        // if goal has been completed, put an X, else, put a blank space instead
+        System.Console.WriteLine($"[{(goalCompleted ? "X" : " ")}] {name} ({description}) - Currently completed: {currentCount}/{maxCount}");
     }
     
 }
