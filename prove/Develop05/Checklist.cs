@@ -18,5 +18,9 @@ public class Checklist: Goal
         // if goal has been completed, put an X, else, put a blank space instead
         System.Console.WriteLine($"[{(goalCompleted ? "X" : " ")}] {name} ({description}) - Currently completed: {currentCount}/{maxCount}");
     }
-    
+
+    public override string SaveGoal()
+    {
+        return $"ChecklistGoal:{name},{description},{goalPoints},{bonusPoints},{maxCount},{currentCount}";
+    }
 }

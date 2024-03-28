@@ -10,6 +10,11 @@ public class Simple: Goal
         System.Console.WriteLine($"[{(goalCompleted ? "X" : " ")}] {name} ({description})");
     }
 
+    public override string SaveGoal()
+    {
+        return $"SimpleGoal:{name},{description},{goalPoints},{goalCompleted}";
+    }
+
     // public override void DisplayGoal(string prefix)
     // {
     //     System.Console.WriteLine($"{prefix}[{(goalCompleted ? "X" : " ")}] {name} ({description})");

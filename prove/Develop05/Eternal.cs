@@ -9,4 +9,9 @@ public class Eternal: Goal
         // always put a blank space inside the [brackets] since an eternal goal cannot be completed
         System.Console.WriteLine($"[ ] {name} ({description})");
     }
+
+    public override string SaveGoal()
+    {
+        return $"EternalGoal:{name},{description},{goalPoints}";
+    }
 }
