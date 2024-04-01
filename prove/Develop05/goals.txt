@@ -1,5 +1,4 @@
 0
-SimpleGoal:Run,a mile,100,False
-EternalGoal:Be kind,to everyone,75
-ChecklistGoal:Go on dates,with cute girls,100,100,5,0
-SimpleGoal:Wake up early,before 8,75,False
+SimpleGoal:Run,Run a mile,100,False
+EternalGoal:Temple,Go to the temple,75
+ChecklistGoal:Date,Go on dates con chavas,70,150,5,0

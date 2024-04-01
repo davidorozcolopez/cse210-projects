@@ -70,7 +70,7 @@ public class Program
                 }
             }
 
-            else if (choice == 3) // Save Goals
+            else if (choice == 3) // Save Goals (write to file)
             {
                 System.Console.Write("\nWhat is the name of the file to write to? ");
                 string filename = Console.ReadLine();
@@ -89,12 +89,12 @@ public class Program
                 }
             }
 
-            else if (choice == 4) // Load Goals
+            else if (choice == 4) // Load Goals (read from file)
             {
 
             }
 
-            else if (choice == 5) // Record Event
+            else if (choice == 5) // Record Event (record goal completion)
             {
                 System.Console.WriteLine("The goals are:");
                 foreach (Goal goal in goals)
@@ -103,6 +103,8 @@ public class Program
                 }
                 System.Console.Write("Which goal did you accomplish? ");
                 int completedGoal = int.Parse(Console.ReadLine());
+
+                // Remember here to adjust the goalCompleted variable (state) to be set to True now.
 
                 // System.Console.WriteLine($"Congratulations! You have earned {goalPoints} points!");
                 // System.Console.WriteLine($"You now have {totalPoints}");
