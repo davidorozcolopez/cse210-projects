@@ -23,11 +23,6 @@ public class Product
         return productID;
     }
 
-    public double GetPricePerUnit()
-    {
-        return pricePerUnit;
-    }
-
     public int ComputeProductTotalCost()
     {
         return Convert.ToInt32(pricePerUnit) * quantity;

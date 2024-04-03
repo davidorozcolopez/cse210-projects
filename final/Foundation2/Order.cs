@@ -1,6 +1,3 @@
-using System.Net.Http.Headers;
-using System.Runtime.InteropServices.Marshalling;
-
 public class Order
 {
     private Customer customer;
@@ -35,25 +32,31 @@ public class Order
 
     public void DisplayPackingLabel()
     {
-        System.Console.WriteLine("Packing label:");
+        System.Console.WriteLine(@"
+---------------------------------------
+Packing label
+---------------------------------------");
 
         foreach(Product product in products)
         {
-            System.Console.WriteLine($"Product name: {product.GetProductName()} ID: {product.GetProductID()}");
+            System.Console.WriteLine($"Product: {product.GetProductName()} | ID: {product.GetProductID()}");
         }
     }
 
     public void DisplayShippingLabel()
     {
-        System.Console.WriteLine("\nShipping label:");
+        System.Console.WriteLine(@"
+---------------------------------------
+Shipping label
+---------------------------------------");
 
-        System.Console.WriteLine($"Customer name: {customer.GetCustomerName()} Address: {customer.GetAddress()}");
+        System.Console.WriteLine($"Customer: {customer.GetCustomerName()} | Address: {customer.GetAddress()}");
     }
 
     public void DisplayOrder()
     {
         DisplayPackingLabel();
         DisplayShippingLabel();
-        System.Console.WriteLine($"Total cost: {ComputeOrderTotalCost()}");
+        System.Console.WriteLine($"Total cost: ${ComputeOrderTotalCost()}");
     }
 }

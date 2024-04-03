@@ -1,6 +1,3 @@
-using System.Net.Sockets;
-using System.Runtime.InteropServices.Marshalling;
-
 public class Customer
 {
     private string customerName;
