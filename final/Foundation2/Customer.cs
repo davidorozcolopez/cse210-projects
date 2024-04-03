@@ -10,6 +10,16 @@ public class Customer
 
     }
 
+    public string GetCustomerName()
+    {
+        return customerName;
+    }
+
+    public Address GetAddress()
+    {
+        return address;
+    }
+
     public bool IsInUSA()
     {
 
