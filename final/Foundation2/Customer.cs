@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using System.Runtime.InteropServices.Marshalling;
 
 public class Customer
 {
@@ -23,6 +24,13 @@ public class Customer
 
     public bool IsInUSA()
     {
-        
+        if (address.IsInUSA())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
