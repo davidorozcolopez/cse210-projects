@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 public abstract class Goal
 {
     protected string name;
@@ -19,6 +17,10 @@ public abstract class Goal
         goalCompleted = false; // default value of goalCompleted is set to false
     }
 
+    public Goal(string line)
+    {
+    }
+
     // polymorphism will be applied here by calling the right method / the right version of DisplayGoal()
     // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
     public abstract void DisplayGoal();
@@ -27,10 +29,6 @@ public abstract class Goal
     // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
     public abstract string SaveGoal();
 
-    // polymorphism will be applied here by calling the right method / the right version of LoadGoal()
-    // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
-    public abstract void LoadGoal(string filename);
-    
     public void DisplayNameGoal()
     {
         System.Console.WriteLine($"{name}");

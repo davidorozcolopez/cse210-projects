@@ -1,4 +1,5 @@
 0
-SimpleGoal,Run,Run a mile,100,False
-EternalGoal,Temple,Go to the temple,75
-ChecklistGoal,Date,Go on dates con chavas,70,150,5,0
+SimpleGoal,Finish a program,from Programming with Classes,150,False
+EternalGoal,Go to the Temple,every other week,100
+ChecklistGoal,Dates,Go on dates often,150,300,7,0
+ChecklistGoal,Finish hw,assignments,50,1000,10,0

@@ -14,6 +14,8 @@ public class Program
         while (!done)
         {
             System.Console.WriteLine();
+            System.Console.WriteLine("---------------------------------------------------------------");
+            System.Console.WriteLine($"You have {totalPoints} points.");
             System.Console.WriteLine(@"Menu Options:
     1. Create New Goal
     2. List Goals
@@ -60,7 +62,7 @@ public class Program
 
             else if (choice == 2) // List Goals
             {
-                System.Console.WriteLine("The goals are: ");
+                System.Console.WriteLine("\nThe goals are: ");
 
                 for (var i = 0; i < goals.Count; ++i)
                 {
@@ -92,21 +94,28 @@ public class Program
 
             else if (choice == 4) // Load Goals (read from file)
             {
-                System.Console.WriteLine("\nWhat is the name of the file to read from? ");
+                System.Console.Write("\nWhat is the name of the file to read from? ");
                 string filename = Console.ReadLine();
-
-                Goal goal = new Goal();
-                goal.LoadGoal(filename);
                 
-                // string[] lines = System.IO.File.ReadAllLines(filename);
+                string[] lines = System.IO.File.ReadAllLines(filename);
 
-                // foreach (string line in lines)
-                // {
-                //     string[] parts = line.Split(",");
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(",");
 
-                //     string goal = parts[0];
-
-                // }
+                    if (parts[0] == "SimpleGoal")
+                    {
+                        goals.Add(new Simple(line));
+                    }
+                    else if (parts[0] == "EternalGoal")
+                    {
+                        goals.Add(new Eternal(line));
+                    }
+                    else if (parts[0] == "ChecklistGoal")
+                    {
+                        goals.Add(new Checklist(line));
+                    }
+                }
             }
 
             else if (choice == 5) // Record Event (record goal completion)

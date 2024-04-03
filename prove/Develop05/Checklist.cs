@@ -13,6 +13,18 @@ public class Checklist: Goal
         currentCount = 0; // default value of currentCount is set to 0
     }
 
+    public Checklist(string line) : base(line)
+    {
+        string[] parts = line.Split(",");
+
+        name = parts[1];
+        description = parts[2];
+        goalPoints = int.Parse(parts[3]);
+        bonusPoints = int.Parse(parts[4]);
+        maxCount = int.Parse(parts[5]);
+        currentCount = int.Parse(parts[6]);
+    }
+
     public override void DisplayGoal()
     {
         // if goal has been completed, put an X, else, put a blank space instead
@@ -22,23 +34,5 @@ public class Checklist: Goal
     public override string SaveGoal()
     {
         return $"ChecklistGoal,{name},{description},{goalPoints},{bonusPoints},{maxCount},{currentCount}";
-    }
-
-    public override void LoadGoal(string filename)
-    {
-        string[] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-
-            string goal = parts[0];
-            string name = parts[1];
-            string description = parts[2];
-            int goalPoints = int.Parse(parts[3]);
-            int bonusPoints = int.Parse(parts[4]);
-            int maxCount = int.Parse(parts[5]);
-            int currentCount = int.Parse(parts[6]);
-        }
     }
 }
