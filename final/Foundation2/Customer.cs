@@ -5,9 +5,10 @@ public class Customer
     private string customerName;
     private Address address;
 
-    public Customer()
+    public Customer(string customerName, Address address)
     {
-
+        this.customerName = customerName;
+        this.address = address;
     }
 
     public string GetCustomerName()
@@ -22,6 +23,6 @@ public class Customer
 
     public bool IsInUSA()
     {
-
+        
     }
 }

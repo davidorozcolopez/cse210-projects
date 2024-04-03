@@ -14,12 +14,23 @@ public class Order
 
     public double ComputeOrderTotalCost()
     {
-        double totalCost = 0;
+        double totalProductCost = 0;
         foreach(Product product in products)
         {
-            totalCost += product.ComputeProductTotalCost();
+            totalProductCost += product.ComputeProductTotalCost();
         }
-        return totalCost; // remember to add shipping cost here
+
+        int shippingCost;
+        if (customer.IsInUSA())
+        {
+            shippingCost = 5;
+        }
+        else
+        {
+            shippingCost = 35;
+        }
+
+        return totalProductCost + shippingCost;
     }
 
     public void DisplayPackingLabel()
