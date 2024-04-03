@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Microsoft.VisualBasic;
 
 public class Program
 {
@@ -91,7 +92,21 @@ public class Program
 
             else if (choice == 4) // Load Goals (read from file)
             {
+                System.Console.WriteLine("\nWhat is the name of the file to read from? ");
+                string filename = Console.ReadLine();
 
+                Goal goal = new Goal();
+                goal.LoadGoal(filename);
+                
+                // string[] lines = System.IO.File.ReadAllLines(filename);
+
+                // foreach (string line in lines)
+                // {
+                //     string[] parts = line.Split(",");
+
+                //     string goal = parts[0];
+
+                // }
             }
 
             else if (choice == 5) // Record Event (record goal completion)

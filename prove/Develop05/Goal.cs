@@ -26,6 +26,10 @@ public abstract class Goal
     // polymorphism will be applied here by calling the right method / the right version of SaveGoal()
     // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
     public abstract string SaveGoal();
+
+    // polymorphism will be applied here by calling the right method / the right version of LoadGoal()
+    // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
+    public abstract void LoadGoal(string filename);
     
     public void DisplayNameGoal()
     {

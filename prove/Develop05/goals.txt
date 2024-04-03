@@ -1,4 +1,4 @@
 0
-SimpleGoal:Run,Run a mile,100,False
-EternalGoal:Temple,Go to the temple,75
-ChecklistGoal:Date,Go on dates con chavas,70,150,5,0
+SimpleGoal,Run,Run a mile,100,False
+EternalGoal,Temple,Go to the temple,75
+ChecklistGoal,Date,Go on dates con chavas,70,150,5,0
