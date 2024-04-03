@@ -50,13 +50,17 @@ Packing label
 Shipping label
 ---------------------------------------");
 
-        System.Console.WriteLine($"Customer: {customer.GetCustomerName()} | Address: {customer.GetAddress()}");
+        System.Console.WriteLine(@$"Customer: {customer.GetCustomerName()}
+Address: {customer.GetAddress()}");
     }
 
     public void DisplayOrder()
     {
         DisplayPackingLabel();
         DisplayShippingLabel();
-        System.Console.WriteLine($"Total cost: ${ComputeOrderTotalCost()}");
+        System.Console.WriteLine(@$"
+> Total cost: ${ComputeOrderTotalCost()}");
+        System.Console.WriteLine("Thank you for choosing us!");
+        System.Console.WriteLine("- - - - - - - - - - - - - - - - - - - -");
     }
 }

@@ -14,9 +14,9 @@ public class Customer
         return customerName;
     }
 
-    public Address GetAddress()
+    public string GetAddress()
     {
-        return address;
+        return address.GetCompleteAddress();
     }
 
     public bool IsInUSA()
