@@ -14,7 +14,7 @@ public abstract class Goal
         description = Console.ReadLine();
         System.Console.Write("What is the amount of points associated with this goal? ");
         goalPoints = int.Parse(Console.ReadLine());
-        goalCompleted = false; // default value of goalCompleted is set to false
+        goalCompleted = false; // set default value of goalCompleted to false
     }
 
     public Goal(string line)
@@ -29,8 +29,5 @@ public abstract class Goal
     // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
     public abstract string SaveGoal();
 
-    public void DisplayNameGoal()
-    {
-        System.Console.WriteLine($"{name}");
-    }
+    public abstract int RecordGoal();
 }

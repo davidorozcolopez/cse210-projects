@@ -1,5 +1,4 @@
 0
-SimpleGoal,Finish a program,from Programming with Classes,150,False
-EternalGoal,Go to the Temple,every other week,100
-ChecklistGoal,Dates,Go on dates often,150,300,7,0
-ChecklistGoal,Finish hw,assignments,50,1000,10,0
+SimpleGoal,Finish final project,Complete my Foundation4 project,200,False
+EternalGoal,Run,Run a mile,75
+ChecklistGoal,Help others,Help someone in any way,100,250,5,0,False

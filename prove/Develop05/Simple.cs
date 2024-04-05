@@ -25,4 +25,11 @@ public class Simple: Goal
         return $"SimpleGoal,{name},{description},{goalPoints},{goalCompleted}";
     }
 
+    public override int RecordGoal()
+    {
+        System.Console.WriteLine($"Congatulations! You have earned {goalPoints} points!");
+        goalCompleted = true;
+
+        return goalPoints;
+    }
 }

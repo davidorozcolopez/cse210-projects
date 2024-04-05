@@ -9,12 +9,16 @@ public class Program
         List<Goal> goals = new List<Goal>();
         int totalPoints = 0; // default value of totalPoints is set to 0
 
+        System.Console.WriteLine("___________________________________________________________________________________");
+        System.Console.WriteLine("\n               Welcome to your personalized Goal Tracker Assistant!");
+        System.Console.WriteLine("___________________________________________________________________________________");
+
         bool done = false;
 
         while (!done)
         {
             System.Console.WriteLine();
-            System.Console.WriteLine("---------------------------------------------------------------");
+            System.Console.WriteLine("-----------------------------------------------------------------------------------");
             System.Console.WriteLine($"You have {totalPoints} points.");
             System.Console.WriteLine(@"Menu Options:
     1. Create New Goal
@@ -84,9 +88,9 @@ public class Program
 
                     foreach (Goal goal in goals) // for each goal in goals list
                     {
+                        // use polymorphism here by calling the right version of SaveGoal() to get the string with the correct
+                        // format according to the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
                         string saveGoalInfo = goal.SaveGoal(); // get the formatted string with the goal info to save
-                        // use polymorphism here by calling the right version of SaveGoal() to get the string with the correct format
-                        // according to the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
                         outputFile.WriteLine(saveGoalInfo); // save goal: write goal info to file
                     }
                 }
@@ -98,6 +102,8 @@ public class Program
                 string filename = Console.ReadLine();
                 
                 string[] lines = System.IO.File.ReadAllLines(filename);
+
+                totalPoints = int.Parse(lines[0]); // Import the previous totalPoints from the file being read
 
                 foreach (string line in lines)
                 {
@@ -120,18 +126,24 @@ public class Program
 
             else if (choice == 5) // Record Event (record goal completion)
             {
-                System.Console.WriteLine("The goals are:");
-                foreach (Goal goal in goals)
+                System.Console.WriteLine("\nThe goals are: ");
+
+                for (var i = 0; i < goals.Count; ++i)
                 {
-                    goal.DisplayNameGoal();
+                    System.Console.Write($"{i + 1}. "); // adjust i by adding 1 to start displaying count from 1 instead of 0
+                    goals[i].DisplayGoal(); // access goal in goals list at that specific index, and display it using polymorphism
+                    // polymorphism is applied here by calling the right method / the right version of DisplayGoal()
+                    // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
                 }
-                System.Console.Write("Which goal did you accomplish? ");
-                int completedGoal = int.Parse(Console.ReadLine());
 
-                // Remember here to adjust the goalCompleted variable (state) to be set to True now.
+                System.Console.Write("\nWhich goal did you accomplish? (type in the number) ");
+                int completedGoalNum = int.Parse(Console.ReadLine());
 
-                // System.Console.WriteLine($"Congratulations! You have earned {goalPoints} points!");
-                // System.Console.WriteLine($"You now have {totalPoints}");
+                totalPoints += goals[completedGoalNum - 1].RecordGoal(); // adjust completedGoal number by subtracting 1 to access the right goal at the right index from goals list
+                // polymorphism is applied here by calling the right method / the right version of RecordGoal()
+                // that matches the custom data type of the goal, whether it is a Simple, Eternal or Checklist goal
+
+                System.Console.WriteLine($"\nYou now have {totalPoints} points.");
             }
 
             else if (choice == 6) // Quit

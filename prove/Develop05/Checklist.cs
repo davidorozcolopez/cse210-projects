@@ -23,6 +23,7 @@ public class Checklist: Goal
         bonusPoints = int.Parse(parts[4]);
         maxCount = int.Parse(parts[5]);
         currentCount = int.Parse(parts[6]);
+        goalCompleted = bool.Parse(parts[7]);
     }
 
     public override void DisplayGoal()
@@ -33,6 +34,22 @@ public class Checklist: Goal
 
     public override string SaveGoal()
     {
-        return $"ChecklistGoal,{name},{description},{goalPoints},{bonusPoints},{maxCount},{currentCount}";
+        return $"ChecklistGoal,{name},{description},{goalPoints},{bonusPoints},{maxCount},{currentCount},{goalCompleted}";
+    }
+
+    public override int RecordGoal()
+    {
+        currentCount++;
+        if (currentCount < maxCount) // handle cases when maxCount has not been reached yet
+        {
+            System.Console.WriteLine($"Congatulations! You have earned {goalPoints} points!");
+            return goalPoints;
+        }
+        else // handle the case when the currentCount == maxCount. Add the bonus points and set goalCompleted to true.
+        {
+            System.Console.WriteLine($"Congatulations! You have earned {goalPoints + bonusPoints} points!");
+            goalCompleted = true;
+            return goalPoints + bonusPoints;
+        }
     }
 }

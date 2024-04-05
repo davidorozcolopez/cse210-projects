@@ -23,4 +23,11 @@ public class Eternal: Goal
     {
         return $"EternalGoal,{name},{description},{goalPoints}";
     }
+
+    public override int RecordGoal()
+    {
+        System.Console.WriteLine($"Congatulations! You have earned {goalPoints} points!");
+
+        return goalPoints;
+    }
 }
