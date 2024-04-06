@@ -5,9 +5,9 @@ public class Event
     protected string description;
     protected string date;
     protected string time;
-    protected Address address;
+    protected string address;
 
-    public Event(string type, string title, string description, string date, string time, Address address)
+    public Event(string type, string title, string description, string date, string time, string address)
     {
         this.type = type;
         this.title = title;
@@ -19,12 +19,26 @@ public class Event
 
     public string GetStandardDetails()
     {
-        return $"Title: {title}. Description: {description}. Date: {date}. Time: {time}. Address: {address}.";
+        System.Console.WriteLine("\n_________________________________________________________________________");
+        System.Console.WriteLine("\t\t\t > Standard Details");
+        System.Console.WriteLine("_________________________________________________________________________");
+
+        return $@"Title: {title}.
+Description: {description}.
+Date: {date}.
+Time: {time}.
+Address: {address}.";
     }
 
     public string GetShortDescription()
     {
-        return $"Event type: {type}. Title: {title}. Date: {date}.";
+        System.Console.WriteLine("\n_________________________________________________________________________");
+        System.Console.WriteLine("\t\t\t > Short Description");
+        System.Console.WriteLine("_________________________________________________________________________");
+
+        return $@"Event type: {type}.
+Title: {title}.
+Date: {date}.";
     }
 
 }
