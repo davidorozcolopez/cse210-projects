@@ -1,4 +1,4 @@
-0
-SimpleGoal,Finish final project,Complete my Foundation4 project,200,False
+675
+SimpleGoal,Finish final project,Complete Foundation4 project,200,True
 EternalGoal,Run,Run a mile,75
-ChecklistGoal,Help others,Help someone in any way,100,250,5,0,False
+ChecklistGoal,Help others,Help someone in any way,50,150,5,5,True
