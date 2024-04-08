@@ -9,16 +9,19 @@ public class Swimming: Activity
 
     public override double GetDistance()
     {   
-        return laps * (50 / 1000) * 0.62; // Convert.ToDouble needed?
+        double distance = laps * (50.0 / 1000.0) * 0.62;
+        return Math.Round(distance, 2);
     }
 
     public override double GetSpeed()
     {
-        return (GetDistance() / duration) * 60;
+        double speed = (GetDistance() / duration) * 60;
+        return Math.Round(speed, 2);
     }
 
     public override double GetPace()
     {
-        return (60 / GetSpeed());
+        double pace = (60 / GetSpeed());
+        return Math.Round(pace, 2);
     }
 }
